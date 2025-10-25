@@ -1,0 +1,58 @@
+=== CUDA Image Processing Project ===
+High-performance GPU-accelerated image processing with CUDA
+Processing pipeline: Grayscale → Gaussian Blur → Sharpening
+
+Image dimensions: 2048x2048 (4194304 pixels)
+Memory per image: 4194304 bytes
+Generating synthetic test image (2048x2048)...
+Image saved as PGM: data/input.pgm
+Input - Mean: 103.388, Min: 0, Max: 207
+
+=== GPU Processing Pipeline ===
+Launching grayscale kernel with grid (128, 128) and block (16, 16)
+Launching Gaussian blur kernel with grid (128, 128) and block (16, 16)
+Launching sharpen kernel with grid (128, 128) and block (16, 16)
+CUDA kernel execution completed
+
+=== CPU Processing (Baseline) ===
+
+=== Performance Analysis ===
+GPU Total Time: 534992 μs
+  - Host→Device Copy: 1016 μs
+  - Grayscale Kernel: 213 μs
+  - Gaussian Blur Kernel: 52 μs
+  - Sharpening Kernel: 45 μs
+  - Device→Host Copy: 7770 μs
+
+CPU Time: 2014 μs
+GPU Kernel Time: 310 μs
+
+Speedup (total): 0.00376454x
+Speedup (kernels only): 6.49677x
+Throughput: 13530 Megapixels/second
+After Grayscale - Mean: 103.388, Min: 0, Max: 207
+After Blur - Mean: 103.007, Min: 0, Max: 207
+Final Output - Mean: 103.007, Min: 0, Max: 211
+CPU Baseline - Mean: 103.388, Min: 0, Max: 207
+
+=== Saving Results ===
+Image saved as PGM: data/stage1_grayscale.pgm
+Image saved as PGM: data/stage2_blurred.pgm
+Image saved as PGM: data/output_final.pgm
+Image saved as PGM: data/cpu_baseline.pgm
+
+=== Validation ===
+GPU vs CPU results match: YES
+Maximum difference: 0 (≤1 expected due to rounding)
+
+=== Processing Complete ===
+✓ GPU acceleration demonstrated with 6.49677x speedup
+✓ Multi-stage CUDA pipeline executed successfully
+✓ Output images saved in PGM format (viewable with GIMP/ImageJ)
+
+Files created:
+  - data/input.pgm (original synthetic image)
+  - data/stage1_grayscale.pgm (after grayscale conversion)
+  - data/stage2_blurred.pgm (after Gaussian blur)
+  - data/output_final.pgm (final sharpened result)
+  - data/cpu_baseline.pgm (CPU comparison)

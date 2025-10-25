@@ -1,0 +1,10 @@
+This is a placeholder for the sample input image.
+
+To test the CUDA application:
+1. Place any color image here as 'input.png'
+2. Run './run.sh' to automatically process it
+3. The output will be saved as 'output.png'
+
+The run.sh script can also create a sample image automatically if Python+OpenCV is available.
+
+For manual testing, use any JPEG, PNG, or other image format supported by OpenCV.
