@@ -289,4 +289,4 @@ This project is provided for educational purposes. Free to use and modify for le
 
 **Author**: CUDA Image Processing Demo  
 **Course**: Parallel Computing / GPU Programming  
-**Last Updated**: 2024 
+**Last Updated**: 2025
